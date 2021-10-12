@@ -11,7 +11,7 @@ output:
     number_sections: yes
     code_folding: show
 ---
-#qwerty
+
 
 ```{r setup, include=FALSE}
 # leave this chunk alone
