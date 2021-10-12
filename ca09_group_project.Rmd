@@ -41,7 +41,7 @@ library(viridis)
 library(vroom) #test 
 ```
 
-
+#change2
 
 
 In your final group assignment you have to analyse data about Airbnb listings and fit a model to predict the total cost for two people staying 4 nights in an AirBnB in a city. You can download AirBnB data from [insideairbnb.com](http://insideairbnb.com/get-the-data.html){target="_blank"}; it was originally scraped from airbnb.com. 
