@@ -15,6 +15,7 @@ output:
 
 ```{r setup, include=FALSE}
 # leave this chunk alone
+#hello
 options(knitr.table.format = "html") 
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
   comment = NA, dpi = 300)
