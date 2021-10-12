@@ -38,10 +38,8 @@ library(mosaic)
 library(leaflet) # for interactive HTML maps
 library(tidytext)
 library(viridis)
-library(vroom) #test 
+library(vroom) 
 ```
-
-#change2
 
 
 In your final group assignment you have to analyse data about Airbnb listings and fit a model to predict the total cost for two people staying 4 nights in an AirBnB in a city. You can download AirBnB data from [insideairbnb.com](http://insideairbnb.com/get-the-data.html){target="_blank"}; it was originally scraped from airbnb.com. 
@@ -59,7 +57,7 @@ All of the listings are a GZ file, namely they are archive files compressed by t
 
 # use cache=TRUE so you dont donwload the data everytime you knit
 
-listings <- vroom("http://data.insideairbnb.com/italy/lombardy/milan/2021-09-19/data/listings.csv.gz") %>% 
+listings <- vroom("http://data.insideairbnb.com/south-africa/wc/cape-town/2021-09-29/data/listings.csv.gz") %>% 
        clean_names()
 
 ```
@@ -101,6 +99,28 @@ Conduct a thorough EDA. Recall that an EDA involves three things:
         * `geom_bar()` or `geom_col()` for categorical variables
     * `GGally::ggpairs()` for scaterrlot/correlation matrix
         * Note that you can add transparency to points/density plots in the `aes` call, for example: `aes(colour = gender, alpha = 0.4)`
+        
+```{r}
+dplyr::glimpse(listings)
+skimr::skim(listings)
+#TA - Peter Vodicka comments:
+#We are only going to work with numerical variables, the most important one is price. Price is extremely right skewed
+#Y = 4*logarithm of price, mutate this variable and investigate it, you need to get rid of outliers (negative, zero or extreme prices)
+#Understand the Data
+#We need to predict 4 nights so check the variable minimum_nights and check if they are above 4 and check maximum_nights (if < 4 not useful)
+#Similar to assignment one, rank the property types (select the top 5 frequencies by number of observations and call the rest "others")
+#Do a similar thing with neighbourhood_cleansed
+
+#2 people 4 nights for different times of the year, different property/room types, neighbourhoods, weekday/weekends, ...
+#Is the Data before the pandemic/during pandemic? We need to consider that
+#Don't be afraid to exclude 30% of the Data (treatment of outliers is important)
+
+#Best model will probably have 40-55% adj. R^2
+
+#Introduce Chaptering for HTML (EDA, Visualization, Variables, Training/Testing, Executive Summary without Technical Terms!)
+
+#Check frequency of variables and order them by count using arrange
+```
         
 You may wish to have a level 1 header (`#`) for your EDA, then use level 2 sub-headers (`##`) to make sure you cover all three EDA bases. **At a minimum** you should address these questions:
 
