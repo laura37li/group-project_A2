@@ -165,14 +165,18 @@ reviews_per_month)
 
 glimpse(airbnb_1)
 
-airbnb_2<-airbnb_1%>%
-  filter(accommodates=="2")%>%
-  na.omit()%>%
-  filter()
-
-glimpse(airbnb_3)
-
 ```
+
+```{r}
+airbnb_1$review_scores_rating[is.na(airbnb_1$review_scores_rating)] <- round(mean(airbnb_1$review_scores_rating, na.rm = TRUE))
+
+airbnb_1$review_scores_rating[is.na(airbnb_1$review_scores_rating)] <- round(mean(airbnb_1$review_scores_rating, na.rm = TRUE))
+```
+
+
+
+
+
 ```{r}
 myvars <- c("price","property_type","room_type")
 new_data <- listings[myvars]
